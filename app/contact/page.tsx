@@ -30,8 +30,9 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
 }
 
 export default function Contact() {
-  // Google reCAPTCHA Site Key - Replace with your actual site key
-  const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || 'YOUR_RECAPTCHA_SITE_KEY'
+  // Google reCAPTCHA Site Key - Must be reCAPTCHA v2 "I'm not a robot" checkbox type
+  const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
+  const RECAPTCHA_ENABLED = RECAPTCHA_SITE_KEY && RECAPTCHA_SITE_KEY !== '' && RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY'
   
   const [formData, setFormData] = useState({
     name: '',
@@ -48,8 +49,8 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Check reCAPTCHA
-    if (!recaptchaToken) {
+    // Check reCAPTCHA only if enabled
+    if (RECAPTCHA_ENABLED && !recaptchaToken) {
       alert('Please complete the CAPTCHA verification')
       return
     }
@@ -316,23 +317,29 @@ export default function Contact() {
                   />
 
                   {/* Google reCAPTCHA */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="flex justify-center"
-                  >
-                    <ReCAPTCHA
-                      ref={recaptchaRef}
-                      sitekey={RECAPTCHA_SITE_KEY}
-                      onChange={handleRecaptchaChange}
-                      theme="light"
-                    />
-                  </motion.div>
+                  {RECAPTCHA_ENABLED ? (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="flex justify-center"
+                    >
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={RECAPTCHA_SITE_KEY}
+                        onChange={handleRecaptchaChange}
+                        theme="light"
+                      />
+                    </motion.div>
+                  ) : (
+                    <div className="text-center text-sm text-gray-500 py-2">
+                      reCAPTCHA not configured. Please set NEXT_PUBLIC_RECAPTCHA_SITE_KEY environment variable.
+                    </div>
+                  )}
 
                   <motion.button
                     type="submit"
-                    disabled={isSubmitting || !recaptchaToken}
+                    disabled={isSubmitting || (RECAPTCHA_ENABLED && !recaptchaToken)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-full bg-mcs-dark-brown text-white py-3 rounded-lg font-semibold shadow-lg hover:bg-mcs-brown transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
