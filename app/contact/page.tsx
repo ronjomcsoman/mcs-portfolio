@@ -31,11 +31,13 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
 
 export default function Contact() {
   // Google reCAPTCHA Site Key - Must be reCAPTCHA v2 "I'm not a robot" checkbox type
+  // Key should start with "6L" for v2 checkbox type
   const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
   const RECAPTCHA_ENABLED = Boolean(
     RECAPTCHA_SITE_KEY && 
     RECAPTCHA_SITE_KEY !== '' && 
-    RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY'
+    RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY' &&
+    RECAPTCHA_SITE_KEY.startsWith('6L') // Ensure it's a v2 checkbox key
   )
   
   const [formData, setFormData] = useState({
@@ -333,11 +335,18 @@ export default function Contact() {
                         sitekey={RECAPTCHA_SITE_KEY}
                         onChange={handleRecaptchaChange}
                         theme="light"
+                        size="normal"
                       />
                     </motion.div>
                   ) : (
-                    <div className="text-center text-sm text-gray-500 py-2">
-                      reCAPTCHA not configured. Please set NEXT_PUBLIC_RECAPTCHA_SITE_KEY environment variable.
+                    <div className="text-center text-sm text-yellow-600 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                      <p className="font-semibold mb-1">reCAPTCHA Not Configured</p>
+                      <p className="text-xs">
+                        {RECAPTCHA_SITE_KEY 
+                          ? `Invalid key format. Key must start with "6L" (reCAPTCHA v2 checkbox type).`
+                          : 'Please set NEXT_PUBLIC_RECAPTCHA_SITE_KEY environment variable in Vercel.'
+                        }
+                      </p>
                     </div>
                   )}
 
