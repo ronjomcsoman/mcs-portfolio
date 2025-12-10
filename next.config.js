@@ -2,8 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [],
+    unoptimized: false, // Enable Next.js image optimization
+    remotePatterns: [],
   },
+  // Ensure proper routing
+  trailingSlash: false,
 }
 
 module.exports = nextConfig
