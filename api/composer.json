@@ -1,0 +1,13 @@
+{
+  "name": "mcs-portfolio/api",
+  "description": "MCS Portfolio Contact Form API",
+  "require": {
+    "phpmailer/phpmailer": "^6.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "PHPMailer\\PHPMailer\\": "vendor/phpmailer/phpmailer/src/"
+    }
+  }
+}
+
