@@ -182,7 +182,7 @@ export default function Contact() {
                   ))}
                 </div>
 
-                {/* Map Placeholder */}
+                {/* Google Maps Embed */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -192,12 +192,18 @@ export default function Contact() {
                   <h3 className="font-heading font-semibold text-mcs-dark-brown mb-4">
                     Location
                   </h3>
-                  <div className="bg-mcs-beige rounded-xl h-64 flex items-center justify-center border-2 border-dashed border-mcs-brown">
-                    <div className="text-center">
-                      <div className="text-4xl mb-2">🗺️</div>
-                      <p className="text-gray-600">Google Maps Embed</p>
-                      <p className="text-sm text-gray-500 mt-2">Knowledge Oasis Muscat</p>
-                    </div>
+                  <div className="rounded-xl overflow-hidden border-2 border-mcs-brown shadow-lg">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228.5651770245156!2d58.17047724114918!3d23.566905100753406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e8de3177a652b69%3A0x676f2b816fc2fd5b!2sMubadrah%20Comprehensive%20Services%20LLC!5e0!3m2!1sen!2som!4v1765355703805!5m2!1sen!2som"
+                      width="100%"
+                      height="450"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="w-full"
+                      title="Mubadrah Comprehensive Services LLC Location"
+                    />
                   </div>
                 </motion.div>
               </div>
