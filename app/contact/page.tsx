@@ -32,7 +32,11 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
 export default function Contact() {
   // Google reCAPTCHA Site Key - Must be reCAPTCHA v2 "I'm not a robot" checkbox type
   const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
-  const RECAPTCHA_ENABLED = RECAPTCHA_SITE_KEY && RECAPTCHA_SITE_KEY !== '' && RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY'
+  const RECAPTCHA_ENABLED = Boolean(
+    RECAPTCHA_SITE_KEY && 
+    RECAPTCHA_SITE_KEY !== '' && 
+    RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY'
+  )
   
   const [formData, setFormData] = useState({
     name: '',
