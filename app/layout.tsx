@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Analytics from '@/components/Analytics'
 
 export const metadata: Metadata = {
   title: 'Mubadrah Comprehensive Services L.L.C | Integrated Facility Management Solutions',
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Analytics />
         <Header />
         <main>{children}</main>
         <Footer />
