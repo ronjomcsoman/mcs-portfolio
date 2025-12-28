@@ -38,7 +38,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -59,6 +59,20 @@ export default function Header() {
                 </Link>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <a
+                href="https://mcsone-ascydsgdf4ate5fm.canadacentral-01.azurewebsites.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-mcs-dark-brown text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-mcs-gold transition-all duration-300 shadow-md"
+              >
+                LOGIN
+              </a>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -90,6 +104,15 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="https://mcsone-ascydsgdf4ate5fm.canadacentral-01.azurewebsites.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-3 mt-2 text-center bg-mcs-dark-brown text-white rounded-lg font-bold hover:bg-mcs-gold transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              LOGIN
+            </a>
           </div>
         )}
       </nav>
