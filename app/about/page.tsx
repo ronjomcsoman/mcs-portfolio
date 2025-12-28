@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Counter from '@/components/Counter'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -162,38 +163,97 @@ export default function About() {
         </div>
       </AnimatedSection>
 
-      {/* ICV & SME Support Section */}
-      <AnimatedSection className="py-20 bg-gradient-to-b from-white to-mcs-beige">
+      {/* ICV Section - Styled like Image 3 */}
+      <section className="py-24 bg-mcs-beige/5 overflow-hidden relative border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* Content Side */}
+            <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-8 uppercase tracking-widest">In Country Value</h2>
+                <p className="text-mcs-gold font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
+                  TOTAL PAYMENT TO SME COMPANIES <br className="hidden md:block" /> UNTIL 2024
+                </p>
+                <div className="flex flex-col lg:flex-row lg:items-baseline gap-4 justify-center lg:justify-start">
+                  <span className="text-mcs-dark-brown text-4xl md:text-5xl font-bold">OMR</span>
+                  <div className="text-6xl md:text-8xl font-black text-mcs-dark-brown tracking-tighter">
+                    <Counter value={4149383} duration={2.5} />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Hexagonal Pattern Side */}
+            <div className="flex-1 relative order-1 lg:order-2">
+              <div className="grid grid-cols-3 gap-4 rotate-12">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="w-full aspect-square bg-white rounded-2xl relative overflow-hidden transform border-4 border-mcs-gold/10 shadow-xl"
+                    style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
+                  >
+                    <div className="absolute inset-0 bg-mcs-gold/5 flex items-center justify-center -rotate-12">
+                      <span className="text-4xl">🏗️</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Operational Zones Section */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-12 text-center">
-            ICV & SME Support
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-4 uppercase">OPERATIONAL ZONES</h2>
+            <div className="h-1.5 w-24 bg-mcs-gold mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6">
             {[
-              { icon: '🏢', title: 'In-Country Value', description: 'Supporting local economic development through strategic partnerships' },
-              { icon: '💼', title: 'SME Development', description: 'Empowering small and medium enterprises in the facility management sector' },
-              { icon: '🤝', title: 'Local Partnerships', description: 'Building strong relationships with Omani businesses and communities' }
-            ].map((item, index) => (
+              'BURAIMI', 'SOHAR', 'KOM', 'WADI KABIR', 'RUSAYL',
+              'NIZWA', 'IBRI', 'SAMAIL', 'SUR', 'RAYSUT',
+              'MAZYONAH', 'DUQM', 'MAHAS'
+            ].map((zone, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white p-8 rounded-xl shadow-lg text-center card-hover"
+                transition={{ delay: index * 0.05 }}
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: '#8B6F47',
+                  color: '#FFFFFF',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
+                }}
+                className="group relative bg-mcs-beige/10 p-6 rounded-2xl text-center border border-mcs-gold/20 shadow-sm transition-all duration-300 flex items-center justify-center cursor-default"
               >
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-heading font-semibold text-mcs-dark-brown mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.description}</p>
+                <div className="absolute top-0 right-0 w-8 h-8 bg-mcs-gold/5 rounded-bl-3xl group-hover:bg-white/10 transition-colors"></div>
+                <span className="font-bold text-mcs-dark-brown text-sm tracking-widest group-hover:text-white transition-colors">{zone}</span>
               </motion.div>
             ))}
           </div>
-        </div> 
-      </AnimatedSection>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="mt-16 p-10 bg-gradient-to-br from-mcs-dark-brown to-mcs-brown rounded-3xl text-center shadow-xl border border-white/10"
+          >
+            <p className="text-white/90 text-lg md:text-xl font-medium max-w-4xl mx-auto leading-relaxed italic">
+              "Delivering excellence in Facility Management services across the most strategic industrial, special economic, and free zones of the Sultanate of Oman."
+            </p>
+          </motion.div>
+        </div>
+      </section>
     </div>
   )
 }
-

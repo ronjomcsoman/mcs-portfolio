@@ -38,7 +38,7 @@ const SMTP_CONFIG = {
   },
 }
 
-const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'info@mubadrah.om'
+const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'ronjo.mcsoman@gmail.com'
 
 const RECAPTCHA_CONFIG = {
   enabled: process.env.RECAPTCHA_ENABLED !== 'false',

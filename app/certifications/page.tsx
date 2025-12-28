@@ -30,32 +30,53 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
 export default function Certifications() {
   const certifications = [
     {
-      number: 'ISO 9001',
-      title: 'Quality Management',
-      icon: '🏆',
-      description: 'Ensures consistent quality in products and services, focusing on customer satisfaction and continuous improvement.',
-      color: 'from-blue-500 to-blue-600'
+      number: 'ISO 55001:2014',
+      title: 'Asset Management',
+      icon: '📊',
+      description: 'Systematic approach to asset management, maximizing value and optimizing lifecycle performance.',
+      color: 'from-purple-500 to-purple-600'
     },
     {
-      number: 'ISO 14001',
+      number: 'ISO 14001:2015',
       title: 'Environmental Management',
       icon: '🌍',
-      description: 'Demonstrates commitment to environmental responsibility, sustainable practices, and regulatory compliance.',
+      description: 'Commitment to environmental responsibility, sustainable practices, and regulatory compliance.',
       color: 'from-green-500 to-green-600'
     },
     {
-      number: 'ISO 45001',
+      number: 'ISO 45001:2015',
       title: 'Health & Safety',
       icon: '🛡️',
-      description: 'Establishes frameworks for occupational health and safety, protecting workers and ensuring safe operations.',
+      description: 'Frameworks for occupational health and safety, protecting workers and ensuring safe operations.',
       color: 'from-red-500 to-red-600'
     },
     {
-      number: 'ISO 55001',
-      title: 'Asset Management',
-      icon: '📊',
-      description: 'Provides systematic approach to asset management, maximizing value and optimizing asset lifecycle performance.',
-      color: 'from-purple-500 to-purple-600'
+      number: 'ISO 9001:2015',
+      title: 'Quality Management',
+      icon: '🏆',
+      description: 'Consistent quality in products and services, focusing on customer satisfaction and improvement.',
+      color: 'from-blue-500 to-blue-600'
+    },
+    {
+      number: 'ISO 41001:2018',
+      title: 'Facility Management',
+      icon: '🏢',
+      description: 'International standard for facility management systems to improve productivity and safety.',
+      color: 'from-mcs-gold to-mcs-brown'
+    },
+    {
+      number: 'USAC',
+      title: 'Certification',
+      icon: '🇺🇸',
+      description: 'Accreditation from the United States Accreditation Center.',
+      color: 'from-mcs-dark-brown to-mcs-brown'
+    },
+    {
+      number: 'MEFMA',
+      title: 'Member',
+      icon: '🏗️',
+      description: 'Middle East Facility Management Association - Professional Membership.',
+      color: 'from-mcs-gold to-mcs-light-gold'
     }
   ]
 
@@ -92,7 +113,7 @@ export default function Certifications() {
               MCS is proud to hold multiple ISO certifications, demonstrating our commitment to excellence, sustainability, safety, and quality in all aspects of facility management.
             </p>
           </AnimatedSection>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {certifications.map((cert, index) => (
               <motion.div
@@ -100,13 +121,13 @@ export default function Certifications() {
                 initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                 whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
-                transition={{ 
+                transition={{
                   delay: index * 0.15,
                   type: "spring",
                   stiffness: 100
                 }}
-                whileHover={{ 
-                  scale: 1.1, 
+                whileHover={{
+                  scale: 1.1,
                   rotate: 5,
                   y: -10
                 }}

@@ -7,6 +7,9 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Mubadrah Comprehensive Services L.L.C | Integrated Facility Management Solutions',
   description: 'Leading quasi-government company delivering integrated facility management solutions across the Sultanate of Oman.',
+  icons: {
+    icon: '/mcs.jpg',
+  }
 }
 
 export default function RootLayout({

@@ -25,16 +25,18 @@ export default function Header() {
               whileHover={{ scale: 1.05, rotate: 2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Image
-                src="/mcs.jpg"
-                alt="MCS Logo"
-                width={120}
-                height={60}
-                className="object-contain"
-              />
+              <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-mcs-gold/30 shadow-sm flex items-center justify-center bg-white p-1">
+                <Image
+                  src="/mcs.jpg"
+                  alt="MCS Logo"
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
+              </div>
             </motion.div>
           </Link>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navLinks.map((link, index) => (
