@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Counter from '@/components/Counter'
+import ClientSection from '@/components/ClientSection'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -145,36 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hexagonal Image Showcase - Inspired by Image 0 */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex-1">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.05, zIndex: 10 }}
-                    className="aspect-square bg-mcs-beige/20 rounded-2xl relative overflow-hidden border-4 border-white shadow-xl"
-                    style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-mcs-gold/20 to-mcs-brown/20 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-mcs-dark-brown/30">MCS {i}</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            <div className="flex-1 text-center lg:text-left">
-              <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-6">Building Excellence in Every Project</h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                From luxury hotels to industrial complexes, we provide comprehensive management that ensures reliability and operational efficiency at every level.
-              </p>
-              <Link href="/services" className="text-mcs-gold font-bold hover:underline">Learn more about our standards →</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ClientSection />
 
       {/* About Summary Section */}
       <AnimatedSection className="py-20 bg-white">
@@ -378,6 +350,7 @@ export default function Home() {
           </div>
         </div>
       </AnimatedSection>
+
       {/* ICV Section - Styled like Image 3 */}
       <section className="py-24 bg-white overflow-hidden relative">
         {/* Background Arches */}
@@ -398,54 +371,31 @@ export default function Home() {
             In Country Value
           </motion.h2>
 
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            {/* Hexagonal Pattern Side */}
-            <div className="flex-1 relative">
-              <div className="grid grid-cols-3 gap-4">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="w-full aspect-square bg-mcs-gold/10 rounded-2xl relative overflow-hidden transform rotate-45 border-4 border-white shadow-lg"
-                    style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-                  >
-                    <div className="absolute inset-0 bg-mcs-brown/20 flex items-center justify-center -rotate-45">
-                      <span className="text-4xl opacity-50">🏗️</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-              <div className="absolute -top-10 -left-10 w-32 h-32 bg-mcs-gold/20 rounded-full blur-3xl"></div>
-            </div>
-
+          <div className="max-w-3xl mx-auto text-center">
             {/* Content Side */}
-            <div className="flex-1 text-center lg:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <p className="text-mcs-gold font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
-                  TOTAL PAYMENT TO SME COMPANIES <br className="hidden md:block" /> UNTIL 2024
-                </p>
-                <div className="flex flex-col lg:flex-row lg:items-baseline gap-4">
-                  <span className="text-mcs-dark-brown text-4xl md:text-5xl font-bold">OMR</span>
-                  <div className="text-6xl md:text-8xl font-black text-mcs-dark-brown tracking-tighter shadow-mcs-gold/10">
-                    <Counter value={4149383} duration={2.5} />
-                  </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-mcs-gold font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
+                TOTAL PAYMENT TO SME COMPANIES <br className="hidden md:block" /> UNTIL 2024
+              </p>
+              <div className="flex flex-col items-center gap-4">
+                <span className="text-mcs-dark-brown text-4xl md:text-5xl font-bold">OMR</span>
+                <div className="text-6xl md:text-8xl font-black text-mcs-dark-brown tracking-tighter shadow-mcs-gold/10">
+                  <Counter value={4149383} duration={2.5} />
                 </div>
-                <div className="mt-8 overflow-hidden h-2 bg-gray-100 rounded-full w-full max-w-md">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
-                    transition={{ duration: 2.5, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-mcs-gold to-mcs-brown"
-                  />
-                </div>
-              </motion.div>
-            </div>
+              </div>
+              <div className="mt-8 overflow-hidden h-2 bg-gray-100 rounded-full w-full mx-auto max-w-md">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  transition={{ duration: 2.5, ease: "easeOut" }}
+                  className="h-full bg-gradient-to-r from-mcs-gold to-mcs-brown"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
