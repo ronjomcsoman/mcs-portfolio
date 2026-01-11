@@ -34,7 +34,7 @@ export default function OmanMap() {
         <div className="relative w-full max-w-5xl mx-auto aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-mcs-gold/20">
             {/* Background Oman Map Image */}
             <Image
-                src="/Oman Map.png"
+                src="/Oman%20Map.png"
                 alt="Map of Oman"
                 fill
                 className="object-cover"
