@@ -34,12 +34,12 @@ export default function Contact() {
   // Key should start with "6L" for v2 checkbox type
   const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
   const RECAPTCHA_ENABLED = Boolean(
-    RECAPTCHA_SITE_KEY && 
-    RECAPTCHA_SITE_KEY !== '' && 
+    RECAPTCHA_SITE_KEY &&
+    RECAPTCHA_SITE_KEY !== '' &&
     RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY' &&
     RECAPTCHA_SITE_KEY.startsWith('6L') // Ensure it's a v2 checkbox key
   )
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -54,18 +54,18 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     // Check reCAPTCHA only if enabled
     if (RECAPTCHA_ENABLED && !recaptchaToken) {
       alert('Please complete the CAPTCHA verification')
       return
     }
-    
+
     setIsSubmitting(true)
-    
+
     // Next.js API route endpoint
     const apiEndpoint = '/api/contact'
-    
+
     try {
       const response = await fetch(apiEndpoint, {
         method: 'POST',
@@ -77,9 +77,9 @@ export default function Contact() {
           recaptcha_token: recaptchaToken
         }),
       })
-      
+
       const data = await response.json()
-      
+
       if (response.ok && data.success) {
         alert(data.message || 'Thank you for your message! We will get back to you soon.')
         setFormData({ name: '', email: '', phone: '', company: '', message: '', website: '' })
@@ -99,7 +99,7 @@ export default function Contact() {
       setIsSubmitting(false)
     }
   }
-  
+
   const handleRecaptchaChange = (token: string | null) => {
     setRecaptchaToken(token)
   }
@@ -113,9 +113,9 @@ export default function Contact() {
 
   const contactInfo = [
     { icon: '📍', label: 'Address', value: '3rd Floor, KOM 5, Knowledge Oasis Muscat, PO 135, PC 135' },
-    { icon: '📞', label: 'Phone', value: '+968 24155991', link: 'tel:+96824155991' },
-    { icon: '📱', label: 'Mobile', value: '+968 97007112', link: 'tel:+96897007112' },
-    { icon: '✉️', label: 'Email', value: 'info@mubadrah.om', link: 'mailto:info@mubadrah.om' }
+    { icon: '📞', label: 'Company Phone', value: '+968 24155991', link: 'tel:+96824155991' },
+    { icon: '📱', label: 'Mobile', value: '+968 92453631', link: 'tel:+96892453631' },
+    { icon: '✉️', label: 'Email', value: 'services.mcs@mubadrah.om', link: 'mailto:services.mcs@mubadrah.om' }
   ]
 
   return (
@@ -342,7 +342,7 @@ export default function Contact() {
                     <div className="text-center text-sm text-yellow-600 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
                       <p className="font-semibold mb-1">reCAPTCHA Not Configured</p>
                       <p className="text-xs">
-                        {RECAPTCHA_SITE_KEY 
+                        {RECAPTCHA_SITE_KEY
                           ? `Invalid key format. Key must start with "6L" (reCAPTCHA v2 checkbox type).`
                           : 'Please set NEXT_PUBLIC_RECAPTCHA_SITE_KEY environment variable in Vercel.'
                         }

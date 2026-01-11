@@ -69,8 +69,14 @@ export default function About() {
             <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-6 text-center">
               Company Overview
             </h2>
+            <p className="text-lg text-gray-700 leading-relaxed text-center mb-6">
+              Mubadrah Comprehensive Services LLC (MCS), established in 2018, is a quasi-government organization providing comprehensive facilities management solutions across Oman. Committed to safety, sustainability, and quality, MCS ensures that its services meet both local and international standards. Also, the company is dedicated to contributing to the country's economic growth through long-term partnerships and a client-focused approach.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed text-center mb-6">
+              At the core of MCS’s operations is the delivery of Integrated Facility Management Solutions including Maintenance and operation services, cleaning services, Agricultural and landscaping services, Events and hospitality management services. These services tailored to meet the specific needs of its clients. The company's commitment to operational excellence is reflected in its ISO certifications in Quality Management, Environmental Management, Health & Safety, and Asset Management. This ensures that MCS continues to offer world-class services while fostering a culture of continuous improvement.
+            </p>
             <p className="text-lg text-gray-700 leading-relaxed text-center">
-              Mubadrah Comprehensive Services LLC (MCS), established in 2018, is a quasi-government organization providing comprehensive facilities management solutions across Oman. Committed to safety, sustainability, and quality, MCS ensures that its services meet both local and international standards. The company is dedicated to contributing to the country's economic growth through long-term partnerships and a client-focused approach.
+              Backed by an Omani management team, MCS plays a key role in enhancing the community by actively supporting In-Country Value (ICV) and promoting the growth of small and medium enterprises (SMEs).
             </p>
           </div>
         </div>
@@ -90,7 +96,7 @@ export default function About() {
               <div className="text-5xl mb-4">🎯</div>
               <h3 className="text-2xl font-heading font-bold text-mcs-dark-brown mb-4">Vision</h3>
               <p className="text-gray-700">
-                To be Oman's leading provider of sustainable, reliable, and innovative facility management solutions.
+                To be Oman’s most trusted integrated facilities management partner, setting new standards through digital innovation, customer focus, and continuous improvement, while creating lasting value for assets, people, and the nation.
               </p>
             </motion.div>
 
@@ -104,7 +110,7 @@ export default function About() {
               <div className="text-5xl mb-4">🚀</div>
               <h3 className="text-2xl font-heading font-bold text-mcs-dark-brown mb-4">Mission</h3>
               <p className="text-gray-700">
-                To deliver world-class integrated services prioritizing safety, quality, and environmental responsibility.
+                To deliver integrated, reliable, and digitally enabled facilities management services that keep physical assets performing at their best. We are committed to a customer-centric approach, continuous improvement, and the development of a young, capable workforce, while strengthening In-Country Value through local talent, local partnerships, and sustainable contributions to Oman’s economy.
               </p>
             </motion.div>
           </div>
@@ -176,12 +182,12 @@ export default function About() {
               >
                 <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-8 uppercase tracking-widest">In Country Value</h2>
                 <p className="text-mcs-gold font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
-                  TOTAL PAYMENT TO SME COMPANIES <br className="hidden md:block" /> UNTIL 2024
+                  TOTAL PAYMENT TO SME COMPANIES <br className="hidden md:block" /> UP TO 2025
                 </p>
                 <div className="flex flex-col lg:flex-row lg:items-baseline gap-4 justify-center lg:justify-start">
                   <span className="text-mcs-dark-brown text-4xl md:text-5xl font-bold">OMR</span>
                   <div className="text-6xl md:text-8xl font-black text-mcs-dark-brown tracking-tighter">
-                    <Counter value={4149383} duration={2.5} />
+                    <Counter value={4249384} duration={2.5} />
                   </div>
                 </div>
               </motion.div>

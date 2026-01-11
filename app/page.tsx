@@ -104,7 +104,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-6xl font-heading font-bold text-mcs-dark-brown mb-6"
             >
-              Integrated Facility Management Solutions Across Oman
+              Your Integrated FM Partner
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -112,7 +112,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl md:text-2xl text-mcs-dark-brown mb-4 max-w-3xl mx-auto"
             >
-              Delivering reliable, sustainable, and high-quality services aligned with local and international standards.
+              Mubadrah Comprehensive Services LLC (MCS) is your integrated FM partner, delivering smarter care for physical assets through a digital-led, customer-focused approach.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -168,7 +168,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg text-gray-700 leading-relaxed"
             >
-              Mubadrah Comprehensive Services L.L.C. (MCS) is a leading quasi-government company established in 2018 to deliver integrated facility management solutions across the Sultanate of Oman. Our commitment to safety, sustainability, and operational excellence ensures that every service we deliver meets the highest national and international standards.
+              Mubadrah Comprehensive Services LLC (MCS), established in 2018, is a quasi-government organization providing comprehensive facilities management solutions across Oman. Committed to safety, sustainability, and quality, MCS ensures that its services meet both local and international standards.
             </motion.p>
           </div>
         </div>
@@ -302,9 +302,12 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <AnimatedSection className="py-20 bg-gradient-to-b from-mcs-beige to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown text-center mb-12">
+          <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown text-center mb-6">
             Why Choose Us
           </h2>
+          <p className="text-lg text-gray-700 text-center mb-12 max-w-4xl mx-auto">
+            Mubadrah Comprehensive Services is your integrated FM partner, delivering smarter care for physical assets through a digital-led, customer-focused approach. Powered by a young and dynamic team, we continuously improve the way facilities are managed by combining technology, people, and processes to deliver reliable and seamless operations.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseUs.map((item, index) => (
               <motion.div
@@ -379,12 +382,12 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-mcs-gold font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
-                TOTAL PAYMENT TO SME COMPANIES <br className="hidden md:block" /> UNTIL 2024
+                TOTAL PAYMENT TO SME COMPANIES <br className="hidden md:block" /> UP TO 2025
               </p>
               <div className="flex flex-col items-center gap-4">
                 <span className="text-mcs-dark-brown text-4xl md:text-5xl font-bold">OMR</span>
                 <div className="text-6xl md:text-8xl font-black text-mcs-dark-brown tracking-tighter shadow-mcs-gold/10">
-                  <Counter value={4149383} duration={2.5} />
+                  <Counter value={4249384} duration={2.5} />
                 </div>
               </div>
               <div className="mt-8 overflow-hidden h-2 bg-gray-100 rounded-full w-full mx-auto max-w-md">

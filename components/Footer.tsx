@@ -18,7 +18,7 @@ export default function Footer() {
               Delivering reliable, sustainable, and high-quality services aligned with local and international standards.
             </p>
           </div>
-          
+
           <div>
             <h3 className="font-heading text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -49,20 +49,20 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="font-heading text-lg mb-4">Contact Information</h3>
             <div className="space-y-2 text-mcs-beige text-sm">
               <p>3rd Floor, KOM 5, Knowledge Oasis Muscat</p>
               <p>PO 135, PC 135</p>
               <p>Phone: <a href="tel:+96824155991" className="hover:text-mcs-gold">+968 24155991</a></p>
-              <p>Mobile: <a href="tel:+96897007112" className="hover:text-mcs-gold">+968 97007112</a></p>
-              <p>Email: <a href="mailto:info@mubadrah.om" className="hover:text-mcs-gold">info@mubadrah.om</a></p>
+              <p>Mobile: <a href="tel:+96892453631" className="hover:text-mcs-gold">+968 92453631</a></p>
+              <p>Email: <a href="mailto:services.mcs@mubadrah.om" className="hover:text-mcs-gold">services.mcs@mubadrah.om</a></p>
             </div>
-          
+
           </div>
         </div>
-        
+
         <div className="border-t border-mcs-brown mt-8 pt-8 text-center text-mcs-beige text-sm">
           <p>&copy; {new Date().getFullYear()} Mubadrah Comprehensive Services L.L.C. All rights reserved.</p>
         </div>
