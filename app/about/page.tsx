@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Counter from '@/components/Counter'
+import OmanMap from '@/components/OmanMap'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -178,6 +179,18 @@ export default function About() {
             <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-4 uppercase">OPERATIONAL ZONES</h2>
             <div className="h-1.5 w-24 bg-mcs-gold mx-auto rounded-full"></div>
           </div>
+
+          {/* Interactive Map */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <OmanMap />
+          </motion.div>
+
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6">
             {[
               'BURAIMI', 'SOHAR', 'KOM', 'WADI KABIR', 'RUSAYL',
