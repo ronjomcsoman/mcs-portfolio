@@ -113,7 +113,7 @@ export default function Contact() {
 
   const contactInfo = [
     { icon: '📍', label: 'Address', value: '3rd Floor, KOM 5, Knowledge Oasis Muscat, PO 135, PC 135' },
-    { icon: '📞', label: 'Company Phone', value: '+968 24155991', link: 'tel:+96824155991' },
+
     { icon: '📱', label: 'Mobile', value: '+968 92453631', link: 'tel:+96892453631' },
     { icon: '✉️', label: 'Email', value: 'services.mcs@mubadrah.om', link: 'mailto:services.mcs@mubadrah.om' }
   ]
