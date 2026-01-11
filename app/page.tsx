@@ -70,7 +70,7 @@ export default function Home() {
     { number: 'ISO 45001:2015', name: 'Health & Safety' },
     { number: 'ISO 55001:2014', name: 'Asset Management' },
     { number: 'ISO 41001:2018', name: 'Facility Management' },
-    { number: 'USAC', name: 'Certification' },
+    { number: 'ISO 22000:2018', name: 'Food Safety Management' },
     { number: 'MEFMA', name: 'Member' }
   ]
 

@@ -27,7 +27,7 @@ export default function Header() {
             >
               <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-mcs-gold/30 shadow-sm flex items-center justify-center bg-white p-1">
                 <Image
-                  src="/mcs.jpg"
+                  src="/MCS_Full_logo-removebg-preview.png"
                   alt="MCS Logo"
                   width={64}
                   height={64}
@@ -65,8 +65,8 @@ export default function Header() {
               transition={{ delay: 0.5 }}
             >
               <a
-                href="https://mcsone-ascydsgdf4ate5fm.canadacentral-01.azurewebsites.net"
-                target="_blank"
+                href="https://mcsadmin-001-site1.ktempurl.com/"
+
                 rel="noopener noreferrer"
                 className="bg-mcs-dark-brown text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-mcs-gold transition-all duration-300 shadow-md"
               >
@@ -105,7 +105,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="https://mcsone-ascydsgdf4ate5fm.canadacentral-01.azurewebsites.net"
+              href="https://mcsadmin-001-site1.ktempurl.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="block py-3 mt-2 text-center bg-mcs-dark-brown text-white rounded-lg font-bold hover:bg-mcs-gold transition-colors"

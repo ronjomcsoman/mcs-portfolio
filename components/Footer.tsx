@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Image
-              src="/mcs.jpg"
+              src="/MCS_Full_logo-removebg-preview.png"
               alt="MCS Logo"
               width={120}
               height={60}
@@ -55,7 +55,6 @@ export default function Footer() {
             <div className="space-y-2 text-mcs-beige text-sm">
               <p>3rd Floor, KOM 5, Knowledge Oasis Muscat</p>
               <p>PO 135, PC 135</p>
-              <p>Phone: <a href="tel:+96824155991" className="hover:text-mcs-gold">+968 24155991</a></p>
               <p>Mobile: <a href="tel:+96892453631" className="hover:text-mcs-gold">+968 92453631</a></p>
               <p>Email: <a href="mailto:services.mcs@mubadrah.om" className="hover:text-mcs-gold">services.mcs@mubadrah.om</a></p>
             </div>

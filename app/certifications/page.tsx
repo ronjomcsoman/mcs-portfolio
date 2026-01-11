@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Image from 'next/image'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -30,46 +31,46 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
 export default function Certifications() {
   const certifications = [
     {
-      number: 'ISO 55001:2014',
-      title: 'Asset Management',
-      icon: '📊',
-      description: 'Systematic approach to asset management, maximizing value and optimizing lifecycle performance.',
-      color: 'from-purple-500 to-purple-600'
+      number: 'ISO 9001:2015',
+      title: 'Quality Management',
+      image: '/Certifications/ISO 9001.png',
+      description: 'Consistent quality in products and services, focusing on customer satisfaction and improvement.',
+      color: 'from-blue-500 to-blue-600'
     },
     {
       number: 'ISO 14001:2015',
       title: 'Environmental Management',
-      icon: '🌍',
+      image: '/Certifications/ISO 14001.png',
       description: 'Commitment to environmental responsibility, sustainable practices, and regulatory compliance.',
       color: 'from-green-500 to-green-600'
     },
     {
       number: 'ISO 45001:2015',
       title: 'Health & Safety',
-      icon: '🛡️',
+      image: '/Certifications/ISO 45001.png',
       description: 'Frameworks for occupational health and safety, protecting workers and ensuring safe operations.',
       color: 'from-red-500 to-red-600'
     },
     {
-      number: 'ISO 9001:2015',
-      title: 'Quality Management',
-      icon: '🏆',
-      description: 'Consistent quality in products and services, focusing on customer satisfaction and improvement.',
-      color: 'from-blue-500 to-blue-600'
+      number: 'ISO 55001:2014',
+      title: 'Asset Management',
+      image: '/Certifications/ISO 55001.png',
+      description: 'Systematic approach to asset management, maximizing value and optimizing lifecycle performance.',
+      color: 'from-purple-500 to-purple-600'
     },
     {
       number: 'ISO 41001:2018',
       title: 'Facility Management',
-      icon: '🏢',
+      image: '/Certifications/ISO 41001.png',
       description: 'International standard for facility management systems to improve productivity and safety.',
       color: 'from-mcs-gold to-mcs-brown'
     },
     {
-      number: 'USAC',
-      title: 'Certification',
-      icon: '🇺🇸',
-      description: 'Accreditation from the United States Accreditation Center.',
-      color: 'from-mcs-dark-brown to-mcs-brown'
+      number: 'ISO 22000:2018',
+      title: 'Food Safety Management',
+      image: '/Certifications/ISO 22000.png',
+      description: 'Ensuring food safety throughout the entire food chain, from farm to fork.',
+      color: 'from-orange-500 to-orange-600'
     },
     {
       number: 'MEFMA',
@@ -135,11 +136,21 @@ export default function Certifications() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-mcs-gold to-mcs-light-gold opacity-20 rounded-full -mr-16 -mt-16"></div>
                 <motion.div
-                  whileHover={{ rotate: 360 }}
+                  whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  className="text-6xl mb-4 relative z-10"
+                  className="mb-4 relative z-10 flex justify-center items-center h-24"
                 >
-                  {cert.icon}
+                  {cert.image ? (
+                    <Image
+                      src={cert.image}
+                      alt={cert.number}
+                      width={100}
+                      height={100}
+                      className="object-contain"
+                    />
+                  ) : (
+                    <span className="text-6xl">{cert.icon}</span>
+                  )}
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}
