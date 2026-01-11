@@ -69,13 +69,13 @@ export default function About() {
             <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-6 text-center">
               Company Overview
             </h2>
-            <p className="text-lg text-gray-700 leading-relaxed text-center mb-6">
+            <p className="text-lg text-gray-700 leading-relaxed text-justify mb-6">
               Mubadrah Comprehensive Services LLC (MCS), established in 2018, is a quasi-government organization providing comprehensive facilities management solutions across Oman. Committed to safety, sustainability, and quality, MCS ensures that its services meet both local and international standards. Also, the company is dedicated to contributing to the country's economic growth through long-term partnerships and a client-focused approach.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed text-center mb-6">
-              At the core of MCS’s operations is the delivery of Integrated Facility Management Solutions including Maintenance and operation services, cleaning services, Agricultural and landscaping services, Events and hospitality management services. These services tailored to meet the specific needs of its clients. The company's commitment to operational excellence is reflected in its ISO certifications in Quality Management, Environmental Management, Health & Safety, and Asset Management. This ensures that MCS continues to offer world-class services while fostering a culture of continuous improvement.
+            <p className="text-lg text-gray-700 leading-relaxed text-justify mb-6">
+              At the core of MCS's operations is the delivery of Integrated Facility Management Solutions including Maintenance and operation services, cleaning services, Agricultural and landscaping services, Events and hospitality management services. These services tailored to meet the specific needs of its clients. The company's commitment to operational excellence is reflected in its ISO certifications in Quality Management, Environmental Management, Health & Safety, and Asset Management. This ensures that MCS continues to offer world-class services while fostering a culture of continuous improvement.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed text-center">
+            <p className="text-lg text-gray-700 leading-relaxed text-justify">
               Backed by an Omani management team, MCS plays a key role in enhancing the community by actively supporting In-Country Value (ICV) and promoting the growth of small and medium enterprises (SMEs).
             </p>
           </div>
@@ -169,52 +169,7 @@ export default function About() {
         </div>
       </AnimatedSection>
 
-      {/* ICV Section - Styled like Image 3 */}
-      <section className="py-24 bg-mcs-beige/5 overflow-hidden relative border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            {/* Content Side */}
-            <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h2 className="text-4xl font-heading font-bold text-mcs-dark-brown mb-8 uppercase tracking-widest">In Country Value</h2>
-                <p className="text-mcs-gold font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
-                  TOTAL PAYMENT TO SME COMPANIES <br className="hidden md:block" /> UP TO 2025
-                </p>
-                <div className="flex flex-col lg:flex-row lg:items-baseline gap-4 justify-center lg:justify-start">
-                  <span className="text-mcs-dark-brown text-4xl md:text-5xl font-bold">OMR</span>
-                  <div className="text-6xl md:text-8xl font-black text-mcs-dark-brown tracking-tighter">
-                    <Counter value={4249384} duration={2.5} />
-                  </div>
-                </div>
-              </motion.div>
-            </div>
 
-            {/* Hexagonal Pattern Side */}
-            <div className="flex-1 relative order-1 lg:order-2">
-              <div className="grid grid-cols-3 gap-4 rotate-12">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="w-full aspect-square bg-white rounded-2xl relative overflow-hidden transform border-4 border-mcs-gold/10 shadow-xl"
-                    style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-                  >
-                    <div className="absolute inset-0 bg-mcs-gold/5 flex items-center justify-center -rotate-12">
-                      <span className="text-4xl">🏗️</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Operational Zones Section */}
       <section className="py-24 bg-white">
