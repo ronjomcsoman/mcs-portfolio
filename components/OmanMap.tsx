@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface Location {
     name: string
@@ -30,57 +31,38 @@ export default function OmanMap() {
     ]
 
     return (
-        <div className="relative w-full max-w-5xl mx-auto aspect-[4/3] bg-gradient-to-br from-mcs-beige/20 to-mcs-light-gold/20 rounded-2xl p-8 shadow-xl border border-mcs-gold/20">
-            {/* SVG Map of Oman (simplified outline) */}
-            <svg
-                viewBox="0 0 800 600"
-                className="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                {/* Oman outline - simplified shape */}
-                <motion.path
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
-                    d="M 150 180 L 200 160 L 280 150 L 350 160 L 420 180 L 480 200 L 540 220 L 580 260 L 600 300 L 610 340 L 600 380 L 580 420 L 540 460 L 480 480 L 420 490 L 360 500 L 300 510 L 240 500 L 180 480 L 140 450 L 100 410 L 80 370 L 70 330 L 80 290 L 100 250 L 130 210 Z M 50 500 L 80 480 L 120 470 L 160 480 L 180 510 L 170 540 L 140 560 L 100 570 L 60 560 L 40 540 L 50 500 Z"
-                    fill="#F5E6D3"
-                    stroke="#8B6F47"
-                    strokeWidth="2"
-                    className="drop-shadow-md"
-                />
+        <div className="relative w-full max-w-5xl mx-auto aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-mcs-gold/20">
+            {/* Background Oman Map Image */}
+            <Image
+                src="/Oman Map.png"
+                alt="Map of Oman"
+                fill
+                className="object-cover"
+                priority
+            />
 
-                {/* Location markers */}
+            {/* Overlay with markers */}
+            <div className="absolute inset-0">
                 {locations.map((location, index) => {
                     const isHovered = hoveredZone === location.name
                     return (
-                        <g key={location.name}>
-                            {/* Marker dot */}
-                            <motion.circle
-                                cx={location.x * 8}
-                                cy={location.y * 6}
-                                r={isHovered ? 12 : 8}
-                                fill="#D4AF37"
-                                stroke="#8B6F47"
-                                strokeWidth="2"
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ delay: index * 0.1 + 2, type: "spring" }}
-                                whileHover={{ scale: 1.3 }}
-                                className="cursor-pointer drop-shadow-lg"
-                                onMouseEnter={() => setHoveredZone(location.name)}
-                                onMouseLeave={() => setHoveredZone(null)}
-                            />
-
-                            {/* Pulsing effect */}
-                            <motion.circle
-                                cx={location.x * 8}
-                                cy={location.y * 6}
-                                r={8}
-                                fill="none"
-                                stroke="#D4AF37"
-                                strokeWidth="2"
+                        <motion.div
+                            key={location.name}
+                            className="absolute"
+                            style={{
+                                left: `${location.x}%`,
+                                top: `${location.y}%`,
+                                transform: 'translate(-50%, -50%)'
+                            }}
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: index * 0.1, type: "spring" }}
+                        >
+                            {/* Pulsing ring */}
+                            <motion.div
+                                className="absolute inset-0 rounded-full border-2 border-mcs-gold"
                                 animate={{
-                                    r: [8, 20],
+                                    scale: [1, 2.5],
                                     opacity: [0.8, 0]
                                 }}
                                 transition={{
@@ -90,44 +72,36 @@ export default function OmanMap() {
                                 }}
                             />
 
-                            {/* Label on hover */}
+                            {/* Marker dot */}
+                            <motion.div
+                                className="relative z-10 w-4 h-4 rounded-full bg-mcs-gold border-2 border-white shadow-lg cursor-pointer"
+                                whileHover={{ scale: 1.5 }}
+                                onMouseEnter={() => setHoveredZone(location.name)}
+                                onMouseLeave={() => setHoveredZone(null)}
+                            />
+
+                            {/* Label tooltip */}
                             {isHovered && (
-                                <motion.g
+                                <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.2 }}
+                                    className="absolute top-[-40px] left-1/2 transform -translate-x-1/2 z-20"
                                 >
-                                    <rect
-                                        x={location.x * 8 - 40}
-                                        y={location.y * 6 - 35}
-                                        width="80"
-                                        height="24"
-                                        rx="4"
-                                        fill="#8B6F47"
-                                        className="drop-shadow-lg"
-                                    />
-                                    <text
-                                        x={location.x * 8}
-                                        y={location.y * 6 - 18}
-                                        textAnchor="middle"
-                                        fill="white"
-                                        fontSize="12"
-                                        fontWeight="bold"
-                                        className="pointer-events-none"
-                                    >
+                                    <div className="bg-mcs-dark-brown text-white px-3 py-1.5 rounded-lg shadow-xl whitespace-nowrap text-sm font-bold">
                                         {location.name}
-                                    </text>
-                                </motion.g>
+                                        <div className="absolute bottom-[-4px] left-1/2 transform -translate-x-1/2 w-2 h-2 bg-mcs-dark-brown rotate-45"></div>
+                                    </div>
+                                </motion.div>
                             )}
-                        </g>
+                        </motion.div>
                     )
                 })}
-            </svg>
+            </div>
 
             {/* Legend */}
-            <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-mcs-gold/30">
+            <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-3 rounded-lg shadow-lg border border-mcs-gold/30 z-30">
                 <div className="flex items-center gap-2 text-sm text-mcs-dark-brown">
-                    <div className="w-3 h-3 rounded-full bg-mcs-gold border-2 border-mcs-brown"></div>
+                    <div className="w-3 h-3 rounded-full bg-mcs-gold border-2 border-white shadow-sm"></div>
                     <span className="font-semibold">Operational Zones</span>
                 </div>
                 <p className="text-xs text-gray-600 mt-1">Hover over markers for details</p>
