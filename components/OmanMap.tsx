@@ -24,7 +24,7 @@ export default function OmanMap() {
         { name: 'IBRI', x: 49, y: 52 },
         { name: 'SAMAIL', x: 56, y: 46 },
         { name: 'SUR', x: 64, y: 50 },
-        { name: 'RAYSUT', x: 40, y: 85 },
+        { name: 'RAYSUT', x: 40, y: 80 },
         { name: 'MAZYONAH', x: 32, y: 78 },
         { name: 'DUQM', x: 50, y: 68 },
         { name: 'MAHAS', x: 49, y: 19 }
