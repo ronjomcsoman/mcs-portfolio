@@ -15,29 +15,29 @@ export default function OmanMap() {
 
     // Approximate coordinates of operational zones on Oman map (as percentages)
     const locations: Location[] = [
-        { name: 'BURAIMI', x: 18, y: 32 },
-        { name: 'SOHAR', x: 32, y: 28 },
-        { name: 'KOM', x: 45, y: 42 },
-        { name: 'WADI KABIR', x: 48, y: 45 },
-        { name: 'RUSAYL', x: 50, y: 43 },
-        { name: 'NIZWA', x: 42, y: 52 },
-        { name: 'IBRI', x: 28, y: 48 },
-        { name: 'SAMAIL', x: 52, y: 46 },
-        { name: 'SUR', x: 68, y: 50 },
-        { name: 'RAYSUT', x: 8, y: 88 },
-        { name: 'MAZYONAH', x: 15, y: 68 },
-        { name: 'DUQM', x: 42, y: 72 },
-        { name: 'MAHAS', x: 35, y: 78 }
+        { name: 'BURAIMI', x: 48, y: 40 },
+        { name: 'SOHAR', x: 51, y: 37 },
+        { name: 'KOM', x: 57, y: 43 },
+        { name: 'WADI KABIR', x: 59, y: 44 },
+        { name: 'RUSAYL', x: 58, y: 45 },
+        { name: 'NIZWA', x: 54, y: 52 },
+        { name: 'IBRI', x: 49, y: 52 },
+        { name: 'SAMAIL', x: 56, y: 46 },
+        { name: 'SUR', x: 64, y: 50 },
+        { name: 'RAYSUT', x: 40, y: 85 },
+        { name: 'MAZYONAH', x: 32, y: 78 },
+        { name: 'DUQM', x: 50, y: 68 },
+        { name: 'MAHAS', x: 49, y: 19 }
     ]
 
     return (
-        <div className="relative w-full max-w-5xl mx-auto aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-mcs-gold/20">
+        <div className="relative w-full max-w-5xl mx-auto aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-mcs-gold/20 bg-white">
             {/* Background Oman Map Image */}
             <Image
-                src="/Oman%20Map.png"
+                src="/Oman Map-new.png"
                 alt="Map of Oman"
                 fill
-                className="object-cover"
+                className="object-contain"
                 priority
             />
 

@@ -62,54 +62,54 @@ export default function Contact() {
     }
 
     setIsSubmitting(true)
-
+  }
     // Next.js API route endpoint
-    const apiEndpoint = '/api/contact'
+    // const apiEndpoint = '/api/contact'
 
-    try {
-      const response = await fetch(apiEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          recaptcha_token: recaptchaToken
-        }),
-      })
+    // try {
+    //   const response = await fetch(apiEndpoint, {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //       ...formData,
+    //       recaptcha_token: recaptchaToken
+    //     }),
+    //   })
 
-      const data = await response.json()
+  //     const data = await response.json()
 
-      if (response.ok && data.success) {
-        alert(data.message || 'Thank you for your message! We will get back to you soon.')
-        setFormData({ name: '', email: '', phone: '', company: '', message: '', website: '' })
-        setRecaptchaToken(null)
-        recaptchaRef.current?.reset()
-      } else {
-        alert(data.message || 'There was an error sending your message. Please try again.')
-        recaptchaRef.current?.reset()
-        setRecaptchaToken(null)
-      }
-    } catch (error) {
-      alert('There was an error sending your message. Please try again.')
-      console.error('Error:', error)
-      recaptchaRef.current?.reset()
-      setRecaptchaToken(null)
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
+  //     if (response.ok && data.success) {
+  //       alert(data.message || 'Thank you for your message! We will get back to you soon.')
+  //       setFormData({ name: '', email: '', phone: '', company: '', message: '', website: '' })
+  //       setRecaptchaToken(null)
+  //       recaptchaRef.current?.reset()
+  //     } else {
+  //       alert(data.message || 'There was an error sending your message. Please try again.')
+  //       recaptchaRef.current?.reset()
+  //       setRecaptchaToken(null)
+  //     }
+  //   } catch (error) {
+  //     alert('There was an error sending your message. Please try again.')
+  //     console.error('Error:', error)
+  //     recaptchaRef.current?.reset()
+  //     setRecaptchaToken(null)
+  //   } finally {
+  //     setIsSubmitting(false)
+  //   }
+  // }
 
-  const handleRecaptchaChange = (token: string | null) => {
-    setRecaptchaToken(token)
-  }
+  // const handleRecaptchaChange = (token: string | null) => {
+  //   setRecaptchaToken(token)
+  // }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value
+  //   })
+  // }
 
   const contactInfo = [
     { icon: '📍', label: 'Address', value: '3rd Floor, KOM 5, Knowledge Oasis Muscat, PO 135, PC 135' },
@@ -236,7 +236,7 @@ export default function Contact() {
                       name="name"
                       required
                       value={formData.name}
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-mcs-gold focus:ring-2 focus:ring-mcs-gold outline-none transition-all"
                     />
                   </motion.div>
@@ -254,7 +254,7 @@ export default function Contact() {
                       name="email"
                       required
                       value={formData.email}
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-mcs-gold focus:ring-2 focus:ring-mcs-gold outline-none transition-all"
                     />
                   </motion.div>
@@ -271,7 +271,7 @@ export default function Contact() {
                       id="phone"
                       name="phone"
                       value={formData.phone}
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-mcs-gold focus:ring-2 focus:ring-mcs-gold outline-none transition-all"
                     />
                   </motion.div>
@@ -288,7 +288,7 @@ export default function Contact() {
                       id="company"
                       name="company"
                       value={formData.company}
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-mcs-gold focus:ring-2 focus:ring-mcs-gold outline-none transition-all"
                     />
                   </motion.div>
@@ -306,7 +306,7 @@ export default function Contact() {
                       required
                       rows={5}
                       value={formData.message}
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-mcs-gold focus:ring-2 focus:ring-mcs-gold outline-none transition-all resize-none"
                     ></textarea>
                   </motion.div>
@@ -316,7 +316,7 @@ export default function Contact() {
                     type="text"
                     name="website"
                     value={formData.website}
-                    onChange={handleChange}
+                    // onChange={handleChange}
                     style={{ display: 'none' }}
                     tabIndex={-1}
                     autoComplete="off"
@@ -333,7 +333,7 @@ export default function Contact() {
                       <ReCAPTCHA
                         ref={recaptchaRef}
                         sitekey={RECAPTCHA_SITE_KEY}
-                        onChange={handleRecaptchaChange}
+                        // onChange={handleRecaptchaChange}
                         theme="light"
                         size="normal"
                       />
