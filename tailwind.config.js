@@ -8,12 +8,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'mcs-brown': '#8B6F47',
-        'mcs-gold': '#D4AF37',
-        'mcs-beige': '#F5E6D3',
-        'mcs-warm-grey': '#A8A8A8',
-        'mcs-dark-brown': '#5C4A2E',
-        'mcs-light-gold': '#E8D5A3',
+        'mcs-dark-brown': '#574355',
+        'mcs-brown': '#BC8A78',
+        'mcs-gold': '#E9A162',
+        'mcs-beige': '#FDF5EF',
+        'mcs-light-gold': '#F4D0B0',
+        'mcs-warm-grey': '#C4BDC3',
       },
       fontFamily: {
         'heading': ['Poppins', 'sans-serif'],
