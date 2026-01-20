@@ -75,7 +75,7 @@ export default function Certifications() {
     {
       number: 'MEFMA',
       title: 'Member',
-      icon: '🏗️',
+      image: '/Certifications/MEFMA.png',
       description: 'Middle East Facility Management Association - Professional Membership.',
       color: 'from-mcs-gold to-mcs-light-gold'
     }
@@ -149,7 +149,7 @@ export default function Certifications() {
                       className="object-contain"
                     />
                   ) : (
-                    <span className="text-6xl">{cert.icon}</span>
+                    <span className="text-6xl">📜</span>
                   )}
                 </motion.div>
                 <motion.div

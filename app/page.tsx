@@ -148,6 +148,25 @@ export default function Home() {
 
       <ClientSection />
 
+      {/* View All Clients Button */}
+      <div className="bg-white pb-20 flex justify-center">
+        <Link href="/clientele">
+          <motion.button
+            whileHover={{ scale: 1.05, backgroundColor: '#BC8A78' }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-mcs-dark-brown text-white px-10 py-4 rounded-full font-bold shadow-xl transition-all flex items-center gap-3 group"
+          >
+            <span>View All Our Clients</span>
+            <motion.span
+              animate={{ x: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              →
+            </motion.span>
+          </motion.button>
+        </Link>
+      </div>
+
       {/* About Summary Section */}
       <AnimatedSection className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

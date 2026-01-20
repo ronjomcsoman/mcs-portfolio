@@ -43,6 +43,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/clientele" className="text-mcs-beige hover:text-mcs-gold transition-colors">
+                  Clientele
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-mcs-beige hover:text-mcs-gold transition-colors">
                   Contact
                 </Link>
